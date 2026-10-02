@@ -16,7 +16,7 @@ services:
     container_name: vucar-valhalla
     restart: unless-stopped
     ports:
-      - "8002:8002"
+      - "127.0.0.1:8002:8002"
     volumes:
       - ./data/custom_files:/custom_files
     environment:
