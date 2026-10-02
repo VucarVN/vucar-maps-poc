@@ -6,7 +6,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-POC_REPO="${POC_REPO:-https://github.com/khoicahu204/vucar-maps-poc.git}"
+POC_REPO="${POC_REPO:-https://github.com/VucarVN/vucar-maps-poc.git}"
 POC_DIR=/opt/vucar-maps-poc
 
 echo "==> [1/6] Cài hệ điều hành dependencies"

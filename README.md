@@ -37,7 +37,7 @@ Xem log build graph: `make logs`.
 2. SSH vào rồi chạy 1 lệnh:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/khoicahu204/vucar-maps-poc/main/deploy/ovh-bootstrap.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/VucarVN/vucar-maps-poc/main/deploy/ovh-bootstrap.sh | sudo bash
 ```
 
 Script tự: cài Docker + swap 4GB → clone POC → tải OSM VN → build graph → start.

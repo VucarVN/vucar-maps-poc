@@ -37,7 +37,7 @@ FLAVOR="${OVH_FLAVOR:-d2-4}"
 INSTANCE_NAME="${INSTANCE_NAME:-vucar-maps-poc}"
 SSH_PUBKEY="${SSH_PUBKEY:-$HOME/.ssh/id_ed25519.pub}"
 VIETMAP_API_KEY="${VIETMAP_API_KEY:-}"
-POC_REPO="${POC_REPO:-https://github.com/khoicahu204/vucar-maps-poc.git}"
+POC_REPO="${POC_REPO:-https://github.com/VucarVN/vucar-maps-poc.git}"
 
 # ── OVH auth ────────────────────────────────────────────────────────────────
 _nonce() { openssl rand -hex 16; }

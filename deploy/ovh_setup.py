@@ -21,7 +21,7 @@ AS = os.environ["OVH_APPLICATION_SECRET"]
 AK = os.environ["OVH_APPLICATION_KEY"]
 CK = os.environ["OVH_CONSUMER_KEY"]
 EP = "https://ca.api.ovh.com/1.0"  # ovh-ca — xác định qua test
-POC_REPO = os.getenv("POC_REPO", "https://github.com/khoicahu204/vucar-maps-poc.git")
+POC_REPO = os.getenv("POC_REPO", "https://github.com/VucarVN/vucar-maps-poc.git")
 INSTANCE_NAME = os.getenv("INSTANCE_NAME", "vucar-maps-poc")
 
 
