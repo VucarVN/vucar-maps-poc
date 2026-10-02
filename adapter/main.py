@@ -89,15 +89,25 @@ def _parse_rows(data: dict, n_src: int, n_dst: int):
 
 
 async def _probe_unroutable_points(points: list[dict], costing: str) -> set[int]:
-    """Điểm nào không nối được vào graph? Dò bằng cặp (p → p) — rỗng nếu lỗi mạng."""
+    """Điểm nào không nối được vào graph? Dò bằng cặp (p → p).
+
+    Lưu ý: `points` là payload thô của backend (`lat`/`lng`), còn Valhalla cần
+    `lat`/`lon` — phải đổi key trước khi gửi, nếu không MỌI probe đều 400 và ta
+    sẽ đánh dấu nhầm cả danh sách là hỏng. Nếu probe fail toàn bộ (khác thường)
+    coi như không kết luận được (trả rỗng) thay vì null hết matrix.
+    """
     bad: set[int] = set()
     for idx, pt in enumerate(points):
+        probe = {"lat": pt["lat"], "lon": pt.get("lon", pt.get("lng"))}
         try:
-            resp = await _post_valhalla([pt], [pt], costing)
+            resp = await _post_valhalla([probe], [probe], costing)
         except Exception:  # noqa: BLE001 - network: coi như không kết luận được
-            return bad
+            return set()
         if resp.status_code >= 400:
             bad.add(idx)
+    if len(bad) == len(points) and points:
+        logger.warning("valhalla probe failed for ALL %d points — inconclusive", len(points))
+        return set()
     return bad
 
 
